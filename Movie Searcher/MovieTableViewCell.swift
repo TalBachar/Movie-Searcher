@@ -49,21 +49,25 @@ class MovieTableViewCell: UITableViewCell {
     
     @IBAction func addToWatchedTapped(_ sender: Any) {
         
-        if var movie = currentMovie {
+        if let movie = currentMovie {
             
-            movie.watched = true
+            movie.watched = !movie.watched
             changeWatchedImage(isWatched: true)
                            MovieManager.shared.addMovieToWatched(movie: movie)
                }
+        
+        table?.reloadData()
+
     }
     @IBAction func addToFavoritesTapped(_ sender: Any) {
         
-        if var movie = currentMovie {
+        if let movie = currentMovie {
             changeFavoriteImage(isFavorite: true)
-            movie.favorite = true
+            
+            movie.favorite = !movie.favorite
                     MovieManager.shared.addMovieToFavorites(movie: movie)
         }
-        //table?.reloadData()
+        table?.reloadData()
     }
     
     func changeFavoriteImage(isFavorite:Bool) -> Void {

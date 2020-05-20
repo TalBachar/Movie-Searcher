@@ -160,7 +160,11 @@ struct MovieResult: Codable {
     let Search: [Movie]
 }
 
-struct Movie: Codable, Equatable {
+class Movie: Codable,Equatable {
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        return true;
+    }
+    
     let Title: String
     let Year: String
     let imdbID: String
