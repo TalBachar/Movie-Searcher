@@ -9,12 +9,14 @@
 import UIKit
 import SafariServices
 
+
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, SignUpViewControllerDelegate {
     
     @IBOutlet var table: UITableView!
     @IBOutlet var field: UITextField!
 
     var movies = [Movie]()
+
 
     
     override func viewDidLoad() {
@@ -37,6 +39,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         navigationItem.title = "Movie Searcher"
 
     }
+
     
     @IBAction func accountTapped(_ sender: Any) {
         

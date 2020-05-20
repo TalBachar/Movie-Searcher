@@ -46,7 +46,7 @@ class MovieManager: NSObject {
             MovieManager.shared.watchedArray.append(movie)
             return
         }
-        for var curMovie: Movie in watchedArray {
+        for curMovie: Movie in watchedArray {
             guard let index = watchedArray.firstIndex(of: curMovie) else { return }
             if movie.imdbID == curMovie.imdbID {
                 curMovie.watched = false

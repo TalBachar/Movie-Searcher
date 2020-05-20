@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class MovieTableViewCell: UITableViewCell {
 
@@ -46,9 +47,10 @@ class MovieTableViewCell: UITableViewCell {
         changeWatchedImage(isWatched: model.watched)
         changeFavoriteImage(isFavorite: model.favorite)
     }
+
     
     @IBAction func addToWatchedTapped(_ sender: Any) {
-        
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         if let movie = currentMovie {
             
             movie.watched = !movie.watched
@@ -60,7 +62,7 @@ class MovieTableViewCell: UITableViewCell {
 
     }
     @IBAction func addToFavoritesTapped(_ sender: Any) {
-        
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         if let movie = currentMovie {
             changeFavoriteImage(isFavorite: true)
             

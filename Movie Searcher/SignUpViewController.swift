@@ -5,7 +5,7 @@
 //  Created by Tal Bachar
 //  Copyright © 2020 Tal Bachar. All rights reserved.
 //
-
+import AudioToolbox
 import UIKit
 
 protocol SignUpViewControllerDelegate {
@@ -22,9 +22,11 @@ class SignUpViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+        
     
     @IBAction func signUpTapped(_ sender: Any) {
-    
+
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
         UserDefaults.standard.set(true, forKey: "signedUp")
         dismiss(animated: true) {
             self.delegate?.signUpTapped()
